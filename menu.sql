@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 25, 2017 at 06:55 AM
+-- Generation Time: Jun 14, 2017 at 03:16 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -19,6 +19,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `menu`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `image_name` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+  `image_path` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -119,17 +131,36 @@ CREATE TABLE `people` (
 --
 
 INSERT INTO `people` (`id`, `people_name`, `href`, `menu_id`) VALUES
-(1, 'Alice', '', 2),
-(2, 'Eleanor', '', 2),
-(3, 'Evelyn', '', 2),
-(4, 'Inga', '', 2),
-(5, 'Joyce', '', 2),
-(6, 'Marjorie', '', 2),
-(7, 'Virgil', '', 2);
+(1, 'Alice', 'alice.php', 2),
+(2, 'Eleanor', 'eleanor.php', 2),
+(3, 'Evelyn', 'evelyn.php', 2),
+(4, 'Inga', 'inga.php', 2),
+(5, 'Joyce', 'joyce.php', 2),
+(6, 'Marjorie', 'marjorie.php', 2),
+(7, 'Virgil', 'virgil.php', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `text`
+--
+
+CREATE TABLE `text` (
+  `id` int(11) NOT NULL,
+  `text_name` varchar(200) NOT NULL,
+  `text_path` varchar(200) NOT NULL,
+  `image_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `letters`
@@ -153,9 +184,21 @@ ALTER TABLE `people`
   ADD KEY `menu_id` (`menu_id`);
 
 --
+-- Indexes for table `text`
+--
+ALTER TABLE `text`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `image_id` (`image_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `letters`
 --
@@ -170,7 +213,12 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `people`
 --
 ALTER TABLE `people`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `text`
+--
+ALTER TABLE `text`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
