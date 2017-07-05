@@ -1,62 +1,88 @@
-#page{
-	margin: 0 auto;
-	max-width: 500px;
-	padding: 50px;
+body {
+	background-color: #EAECEE;
 }
+/*Main Menu*/
 #page ul{
-	width: auto;
-	position: absolute;
-	background-color: #fff;
-	border: 1px solid #8a9bad;
-	border-bottom: 4px solid #8a9bad;
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0.5);;
+	border-bottom: 3px solid #8a9bad;
 	list-style: none;
+	width: 81.2%;
+	margin-left: 100px;
 	padding: 0;
-	margin: 0;
 }
-#page ul li{
+#page ul li {
 	float: left;
-	height: 40px;
-	width: 200px;
-	padding: 0;
-	margin: 0; 
-}
-#page ul li a{
+	position: relative;
 	display: block;
-	padding: 12px 24px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #fff;
-	color: #8a9bad;
+	font-family: fantasy;
+	text-align: center;
+	font-size: 20pt;
+	font-weight: bold;
+	padding-left: 135px;
+	width: 165px;
 }
-#page ul li a:hover{
+/*hide submenus*/
+#page li ul {
+	display: none;
+	border-bottom: none;
+}
+#page ul li a {
+	display: block;
+	padding-top: 13px;
+	width: 130px;
+	text-decoration: none;
+	white-space: nowrap;
+	color: #283A4D;
+}
+#page ul li a:hover {
 	background-color: #57616c;
 	color: #fff;
-	text-shadow: 0px 1px 0px #000;
+	border-bottom: 1px solid #D1584C;
 }
-#page ul li ul{
-	list-style: none;
-	background-color: #ffffff;
-	width: 250px;
-	padding: 0;
-	margin: 0;
-	border: 1px solid #8a9bad;
-	border-bottom: 3px solid #8a9bad;
+/*display drop down menu*/
+#page li:hover > ul {
+	display: block;
 	position: absolute;
-	display: none;
 }
-#page ul li ul li{
-	width: 100%;
+#page li:hover li {
 	float: none;
 }
-#page ul li:hover ul{
-	display: block;
+#page li:hover li a:hover {
+	background: #57616c;
+	color: #fff;
 }
-
-
-
-
-
-
-
-
-
-
+#page ul li ul li:hover ul li a:hover {
+	width: 200px;
+	margin-left: -5px;
+	padding-left: 5px;
+	text-align: left;
+}
+/*second submenu*/
+#page ul ul {
+	margin: 0px;
+	width: 120px;
+}
+#page ul ul ul {
+	position: relative;
+	left: 100%;
+	top: 0;
+	width: 135px;
+	padding-right: 65px;
+	margin-left: -45px;
+}
+#page ul ul li {
+	font-size: 18pt;
+	padding-left: 0;
+	padding-right: 0;
+}
+#page ul ul ul li {
+	font-size: 15pt;
+	padding-left: 5px;
+	margin-left: 0px;
+	padding-left: 5px;
+	padding-right: 0;
+}
+#family {
+	margin-left: 125px;
+}
