@@ -16,6 +16,7 @@ $stmt->execute();
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+      <h1>The Lindstrom Family</h1>
         <div id="page">
             <ul>
                 <?php while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -55,7 +56,6 @@ $stmt->execute();
                 <?php } ?>
             </ul>
             <img id="family" src="people/family.jpg"/>
-            <h1 The Lindstrom Family></h1>
         </div>
     </body>
 </html>
