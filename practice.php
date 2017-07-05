@@ -54,6 +54,8 @@ $stmt->execute();
                 </li>
                 <?php } ?>
             </ul>
+            <img id="family" src="people/family.jpg"/>
+            <h1 The Lindstrom Family></h1>
         </div>
     </body>
 </html>
