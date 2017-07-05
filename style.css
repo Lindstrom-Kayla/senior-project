@@ -1,6 +1,10 @@
 body {
 	background-color: #EAECEE;
 }
+h1 {
+	font-size: 30px;
+	font-family: fantasy;
+}
 /*Main Menu*/
 #page ul{
 	position: fixed;
