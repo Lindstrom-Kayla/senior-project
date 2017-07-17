@@ -1,23 +1,52 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="author" content="Kayla Lindstrom">
-        <title>Lindstrom Letters</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-      <div id="page">
-        <h1>Welcome, this is Alice's page.</h1>
+
+
 <?php
-  $dir = "images/";
+    include '../../header.php';
+?>
+
+<input type="button" value="Text" onclick="return change(this);" />
+
+<script type="text/javascript">
+function change( el )
+{
+    if ( el.value === "Text" )
+         el.value = "Images";
+    else
+         el.value = "Text";
+}
+</script>
+
+<?php
+  $dirimg = "images/";
   //open Directory
-  if($opendir = opendir($dir)) {
+  if($opendirimg = opendir($dirimg)) {
     //read Directory
-    while (($file = readdir($opendir)) !== FALSE){
-      if ($file!="."&&$file!="..")
-        echo "<img src='$dir/$file'><br>";
+    while (($file = readdir($opendirimg)) !== FALSE){
+      if ($file!="." && $file!=".." && empty(preg_match("/^\..*$/", $file)))
+        echo "<img id='letters' src='$dirimg/$file'><br>";
     }
   }
  ?>
-      </div>
-    </body>
+
+<?php
+ $directory = "text/";
+ $dir = opendir($directory);
+ while (($file = readdir($dir)) !== false) {
+   $filename = $directory . $file;
+   $type = filetype($filename);
+   if ($type == 'file') {
+      $contents = file_get_contents($filename);
+      $items = explode('¬', $contents);
+      echo '<table width="500" border="1" cellpadding="4">';
+      foreach ($items as $item) {
+        echo "<tr><td>$item</td></tr>\n";
+      }
+      echo '</table>';
+   }
+ }
+ closedir($dir);
+?>
+
+  <?php
+include "../../footer.php"
+   ?>
